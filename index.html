@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>爱心页面</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+        }
+        
+        .container {
+            text-align: center;
+        }
+        
+        .heart {
+            position: relative;
+            width: 100px;
+            height: 90px;
+            margin: 30px auto;
+            animation: heartbeat 1.2s infinite;
+        }
+        
+        .heart:before,
+        .heart:after {
+            position: absolute;
+            content: "";
+            left: 50px;
+            top: 0;
+            width: 50px;
+            height: 80px;
+            background: #ff3e88;
+            border-radius: 50px 50px 0 0;
+            transform: rotate(-45deg);
+            transform-origin: 0 100%;
+        }
+        
+        .heart:after {
+            left: 0;
+            transform: rotate(45deg);
+            transform-origin: 100% 100%;
+        }
+        
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        
+        p {
+            color: #666;
+            max-width: 500px;
+            margin: 0 auto 30px;
+            line-height: 1.6;
+        }
+        
+        .message {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+        
+        .show-message {
+            opacity: 1;
+        }
+        
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            25% { transform: scale(1.1); }
+            50% { transform: scale(1); }
+            75% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        
+        .btn {
+            background-color: #ff3e88;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #e62e7a;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>爱的表达</h1>
+        <div class="heart"></div>
+        <p>爱是世界上最美好的情感，它温暖人心，传递力量。点击下方按钮，分享你的爱意。</p>
+        <button class="btn" id="showMessage">表达爱意</button>
+        <div class="message" id="message">
+            <p>爱是一种选择，一种行动，一种承诺。愿我们的爱永远相伴，直到时间的尽头。</p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('showMessage').addEventListener('click', function() {
+            const message = document.getElementById('message');
+            message.classList.toggle('show-message');
+            
+            if (message.classList.contains('show-message')) {
+                this.textContent = '隐藏爱意';
+            } else {
+                this.textContent = '表达爱意';
+            }
+        });
+    </script>
+</body>
+</html>
